@@ -6,22 +6,22 @@ KERNEL_VER=$(whiptail --title "Orange Pi Build System" \
 	"2"  "mainline" \
         3>&1 1>&2 2>&3)
 
-SCRIPTS=("scripts" "orangepi-h6_v2.0.2")
-EXTERNAL=("external" "orangepi-h6_v2.0.2")
+SCRIPTS=("scripts" "master")
+EXTERNAL=("external" "master")
 TOOLCHAIN=("toolchain" "aarch64-linux-gnu-4.9")
 
 if [ "${KERNEL_VER}" = "0" ]; then
 	PLATFORM="OrangePiH6"
-	KERNEL=("OrangePiH6_kernel" "master")
-	UBOOT=("OrangePiH6_uboot" "master")
+	KERNEL=("linux-orangepi" "orange-pi-5.4")
+	UBOOT=("u-boot-orangepi" "v2020.04")
 elif [ "${KERNEL_VER}" = "1"  ];then
 	PLATFORM="OrangePiH6_Linux4.9"
-	KERNEL=("OrangePiH6_Linux4_9" "master")
-	UBOOT=("OrangePiH6_uboot" "Linux4.9")
+	KERNEL=("linux-orangepi" "orange-pi-4.9-sun50iw6")
+	UBOOT=("u-boot-orangepi" "v2014.07-sun50iw6-linux4.9")
 elif [ "${KERNEL_VER}" = "2"  ];then
 	PLATFORM="OrangePiH6_mainline"
-	KERNEL=("mainline_kernel" "orangepi-h6")
-	UBOOT=("mainline_uboot" "orangepi-h6")
+	KERNEL=("linux-orangepi" "orange-pi-5.4")
+	UBOOT=("u-boot-orangepi" "v2020.04")
 	TOOLCHAIN=("toolchain" "aarch64-linux-gnu-7.4.1")
 fi
 
